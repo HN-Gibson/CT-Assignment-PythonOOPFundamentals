@@ -5,40 +5,40 @@
 # - Problem Statement: Create a Python class Vehicle with attributes registration_number, type, and owner. Implement a method update_owner to change the vehicle's owner. Then, create a few instances of Vehicle and demonstrate changing the owner.
 
 class Vehicle:
-    def __init__(self, reg_num, type, owner, owner_count):
+    def __init__(self, reg_num, type, owner):
         self.reg_number = reg_num
         self.type = type
         self.owner = owner
-        self.transfer_count = owner_count
     def update_owner(self, new_owner):
-        vehicle["Owner"] = new_owner
-        return print_info()
+        self.owner = new_owner
+
+vehicle = Vehicle(1, 'SUV', 'HN')
+print(vehicle.owner)
+vehicle.update_owner('Maggie')
+print(vehicle.owner)
+vehicle.update_owner('Alfred')
+print(vehicle.owner)
+vehicle.update_owner('Gina')
+print(vehicle.owner)
+
 
 # Task 2: Event Management System Enhancement
 
 # - Problem Statement: Extend an existing Event class by adding a feature to keep track of the number of participants. Implement a method add_participant that increases the count and a method get_participant_count to retrieve the current count.
-class VehicleSale:
-    def __init__(self,name,date):
+
+class Event:
+    def __init__(self,name,date,count):
         self.name = name
         self.date = date
-    def sell(self,name,date):
-        print(f"{name} purchased the vehicle from {vehicle["Owner"]} on {date}!")
-        vehicle["Owner Count"]+=1
-        Vehicle.update_owner(vehicle,name)
-
-def print_info():
-    for key,value in vehicle.items():
-        print(f"{key}:{value}")
-
-
-vehicle = {"Registration Number":"1","Type":"SUV","Owner":"HN","Owner Count":1}
-
-print_info()
-VehicleSale.sell(vehicle,"Maggie","02/24/20")
-VehicleSale.sell(vehicle,"Jerry","04/23/22")
-VehicleSale.sell(vehicle,"Bert","09/24/24")
-
-# - Expected Outcome: Completion of the Vehicle class with the update_owner method and a demonstration script showing the creation of Vehicle objects and updating their owners.
-
-
-
+        self.count= count
+    def add_participant(self,count):
+        self.count += count
+    def get_participant_count(self):
+        return self.count
+    
+event = Event("HN's Birthday Bash","05/09/2025",0)
+print(f"{event.name} will be held on {event.date}!")
+event.add_participant(25)
+event.add_participant(6)
+rsvps = event.get_participant_count()
+print(f"{rsvps} people will attend!")
